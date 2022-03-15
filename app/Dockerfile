@@ -1,6 +1,6 @@
 FROM docker.io/python:3.7
 WORKDIR /app
-COPY src/* ./
+COPY src/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 ENV GUNICORN_CMD_ARGS="--bind=0.0.0.0 --reload"
 EXPOSE 8000

@@ -7,13 +7,14 @@ services:
       context: ./app
       dockerfile: Dockerfile
     volumes:
-      - ./app/src/server.py:/app/server.py
-    ports: 
-      - "8081:8000"
+      - $PWD/app/src:/app
 
   nginx:
     container_name: containerize_nginx_1
-    image: nginx
+    image: containerize_nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     ports: 
       - "80:80"
       - "443:443"
